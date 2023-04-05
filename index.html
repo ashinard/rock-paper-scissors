@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+    <meta charset="utf-8">
+    <title>Rock Paper Scissors</title>
+   </head>
+
+   <body>
+    <script>
+        function getPlayerChoice(){
+            let choice = prompt("Rock, paper, or scissors?", "rock");
+            return choice;
+        }
+
+        function getComputerChoice(){
+            let rand = Math.floor(Math.random() * 3) + 1;
+            let choice;
+
+            if(rand == 1)
+            {
+                choice = "rock";
+            }
+            else if(rand == 2)
+            {
+                choice = "paper";
+            }
+            else
+            {
+                choice = "scissors";
+            }
+
+            return choice;
+        }
+
+        function playRound(player, computer){
+            let condition;
+
+            if(player.toLowerCase() == "rock" && computer.toLowerCase() == "scissors")
+            {
+                condition = "You win! Rock beats Scissors!";
+            }
+            else if(player.toLowerCase() == "scissors" && computer.toLowerCase() == "paper")
+            {
+                condition = "You win! Scissors beats Paper!";
+            }
+            else if(player.toLowerCase() == "paper" && computer.toLowerCase() == "rock")
+            {
+                condition = "You win! Paper beats Rock!";
+            }
+            else if(player.toLowerCase() == "scissors" && computer.toLowerCase() == "rock")
+            {
+                condition = "You lose... Rock beats Scissors...";
+            }
+            else if(player.toLowerCase() == "rock" && computer.toLowerCase() == "paper")
+            {
+                condition = "You lose... Paper beats Rock...";
+            }
+            else if(player.toLowerCase() == "paper" && computer.toLowerCase() == "scissors")
+            {
+                condition = "You lose... Scissors beats Paper...";
+            }
+            else
+            {
+                condition = "You Draw"
+            }
+
+            return condition;
+        }
+
+        function game(){
+
+        }
+    </script>
+   </body>
+</html>
