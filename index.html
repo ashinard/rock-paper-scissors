@@ -7,58 +7,54 @@
 
    <body>
     <div>
-        <button data-key="rock">Rock</button>
-        <button data-key="paper">Paper</button>
-        <button data-key="scissors">Scissors</button>
+        <button class="rps" data-key="rock">Rock</button>
+        <button class="rps" data-key="paper">Paper</button>
+        <button class="rps" data-key="scissors">Scissors</button>
+    </div>
+    <div>
+
     </div>
     <script>
-        const choice = document.querySelectorAll('button');
-
-        function getComputerChoice(){
+        function playRound(e){
             let rand = Math.floor(Math.random() * 3) + 1;
-            console.log(rand);
-            let choice;
+            let comp;
+            let condition;
 
             if(rand == 1)
             {
-                choice = "rock";
+                comp = "rock";
             }
             else if(rand == 2)
             {
-                choice = "paper";
+                comp = "paper";
             }
             else
             {
-                choice = "scissors";
+                comp = "scissors";
             }
+            
 
-            return choice;
-        }
-
-        function playRound(player, computer){
-            let condition;
-
-            if(player.toLowerCase() == "rock" && computer.toLowerCase() == "scissors")
+            if(e.code == "rock" && computer.toLowerCase() == "scissors")
             {
                 condition = "You win! Rock beats Scissors!";
             }
-            else if(player.toLowerCase() == "scissors" && computer.toLowerCase() == "paper")
+            else if(e.code == "scissors" && computer.toLowerCase() == "paper")
             {
                 condition = "You win! Scissors beats Paper!";
             }
-            else if(player.toLowerCase() == "paper" && computer.toLowerCase() == "rock")
+            else if(e.code == "paper" && computer.toLowerCase() == "rock")
             {
                 condition = "You win! Paper beats Rock!";
             }
-            else if(player.toLowerCase() == "scissors" && computer.toLowerCase() == "rock")
+            else if(e.code == "scissors" && computer.toLowerCase() == "rock")
             {
                 condition = "You lose... Rock beats Scissors...";
             }
-            else if(player.toLowerCase() == "rock" && computer.toLowerCase() == "paper")
+            else if(e.code == "rock" && computer.toLowerCase() == "paper")
             {
                 condition = "You lose... Paper beats Rock...";
             }
-            else if(player.toLowerCase() == "paper" && computer.toLowerCase() == "scissors")
+            else if(e.code == "paper" && computer.toLowerCase() == "scissors")
             {
                 condition = "You lose... Scissors beats Paper...";
             }
@@ -66,14 +62,10 @@
             {
                 condition = "You Draw"
             }
-
-            return condition;
         }
 
-        function game(){
-           
-        }
-        game();
+        const choice = document.querySelectorAll('.rps')
+        choice.forEach(choice => choice.addEventListener('click', playRound))
     </script>
    </body>
 </html>
