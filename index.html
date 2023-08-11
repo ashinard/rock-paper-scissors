@@ -6,35 +6,78 @@
    </head>
 
    <body>
-    <div>
+    <div class="buttons">
         <button class="rps" data-key="rock">Rock</button>
         <button class="rps" data-key="paper">Paper</button>
         <button class="rps" data-key="scissors">Scissors</button>
     </div>
-    <div>
-
+    
+    <div id="display">
+        <div>
+            <p id="wins"></p>
+            <p id="losses"></p>
+            <p id="draws"></p>
+        </div>
+        <div>
+            <p id="victor"></p>
+        </div>
+        <div>
+            <button id="redo">Restart Game</button>
+        </div>
     </div>
     <script>
-        function playRound(e){
-            let rand = Math.floor(Math.random() * 3) + 1;
-            let comp;
-            let condition;
 
-            if(rand == 1)
+        function playRound(e){
+            const pick = document.querySelector(`button[data-key="${e.code}"]`);
+            let comp;
+
+            while((wins + losses + ties) < 5)
             {
-                comp = "rock";
+                let rand = Math.floor(Math.random() * 3) + 1;
+
+                if(rand == 1)
+                {
+                    comp = "rock";
+                    console.log(comp);
+                }
+                else if(rand == 2)
+                {
+                    comp = "paper";
+                    console.log(comp);
+                }
+                else
+                {
+                    comp = "scissors";
+                    console.log(comp);
+                }
+
+                if(pick === comp)
+                {
+                    p3.innerHTML = ++ties;
+                }
+                else
+                {
+                    if((pick === "rock" && comp === "scissors") ||
+                    (pick === "scissors" && comp === "paper"))
+                    {
+                        p1.innerHTML = ++wins;
+                    }
+                    else
+                    {
+                        p2.innerHTML = ++loses;
+                    }
+                }
             }
-            else if(rand == 2)
+
+            while((wins + losses + ties) === 5)
             {
-                comp = "paper";
+                winner.style.display = "block";
+                again.style.display = "block";
             }
-            else
-            {
-                comp = "scissors";
-            }
+
             
 
-            if(e.code == "rock" && computer.toLowerCase() == "scissors")
+            /*if(e.code == "rock" && computer.toLowerCase() == "scissors")
             {
                 condition = "You win! Rock beats Scissors!";
             }
@@ -61,11 +104,38 @@
             else
             {
                 condition = "You Draw"
-            }
+            }*/
         }
+
+        function restartGame(e){
+            wins = 0;
+            losses = 0;
+            ties = 0;
+            
+            p1 = wins;
+            p2 = losses;
+            p3 = ties;
+
+            again.style.display = "none";
+            winner.style.display = "none";
+        }
+        
+        let wins = 0;
+        let losses = 0;
+        let ties = 0;
+        const p1 = document.getElementById('wins');
+        const p2 = document.getElementById('losses');
+        const p3 = document.getElementById('draws');
+
+        const winner = getElementById('victor');
+        winner.style.display = "none";
 
         const choice = document.querySelectorAll('.rps')
         choice.forEach(choice => choice.addEventListener('click', playRound))
+
+        const again = document.querySelector('#redo');
+        again.addEventListener('click', restartGame);
+        again.style.display = "none";
     </script>
    </body>
 </html>
