@@ -74,7 +74,20 @@
             {
                 winner.style.display = "block";
                 again.style.display = "block";
-                choice.forEach(choice => choice.removeEventListener('click', playRound))
+                choice.forEach(choice => choice.removeEventListener('click', playRound));
+
+                if(wins > losses)
+                {
+                    winner.innerHTML = "Player Wins!";
+                }
+                else if(wins < losses)
+                {
+                    winner.innerHTML = "Computer Wins!";
+                }
+                else
+                {
+                    winner.innerHTML = "Draw...";
+                }
                 return;
             }
         }
