@@ -3,6 +3,7 @@
    <head>
     <meta charset="utf-8">
     <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
    </head>
 
    <body>
@@ -13,10 +14,19 @@
     </div>
     
     <div id="display">
-        <div>
-            <p id="wins">0</p>
-            <p id="losses">0</p>
-            <p id="draws">0</p>
+        <div class="scores">
+            <div class="wins">
+                <p class="title">WINS</p>
+                <p id="wins">0</p>
+            </div>
+           <div class="losses">
+                <p class="title">LOSSES</p>
+                <p id="losses">0</p>
+           </div>
+           <div class="draws">
+                <p class="title">DRAWS</p>
+                <p id="draws">0</p>
+           </div>
         </div>
         <div>
             <p id="victor"></p>

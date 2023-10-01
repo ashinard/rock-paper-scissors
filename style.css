@@ -1,0 +1,82 @@
+html{
+    border-style: groove;
+    border-color: gold;
+    height: 99%;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    background-color: rgb(2, 0, 102);
+}
+
+.buttons{
+    flex: 1;
+    margin: 20px 40px;
+}
+
+.rps{
+    margin: 0px 25px;
+    padding: 5px 15px;
+}
+
+#display{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.scores{
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+    margin-right: 10px;
+}
+.scores > .wins{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 20px;
+    padding: 0px 20px;
+    border-style: groove;
+    border-radius: 10px;
+    border-color: gold;
+}
+
+.scores > .losses{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 20px;
+    padding: 0px 10px;
+    border-style: groove;
+    border-radius: 10px;
+    border-color: gold;
+}
+
+.scores > .draws{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 20px;
+    padding: 0px 10px;
+    border-style: groove;
+    border-radius: 10px;
+    border-color: gold;
+}
+
+.scores > div > p{
+    color: rgb(0, 187, 255);
+}
+
+#victor{
+    color: rgb(0, 187, 255);
+    font-size: xx-large;
+}
