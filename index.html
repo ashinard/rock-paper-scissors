@@ -64,6 +64,7 @@
             {
                 p3.innerHTML = ++ties;
                 console.log('draw');
+                rounds--;
             }
             else
             {
@@ -90,13 +91,9 @@
                 {
                     winner.innerHTML = "Player Wins!";
                 }
-                else if(wins < losses)
-                {
-                    winner.innerHTML = "Computer Wins!";
-                }
                 else
                 {
-                    winner.innerHTML = "Draw...";
+                    winner.innerHTML = "Computer Wins!";
                 }
                 return;
             }
