@@ -7,10 +7,12 @@
    </head>
 
    <body>
+    <h1>Rock Paper Scissors!</h1>
+
     <div class="buttons">
-        <button class="rps" id="rock">Rock</button>
-        <button class="rps" id="paper">Paper</button>
-        <button class="rps" id="scissors">Scissors</button>
+        <button class="rps"><img id="rock" src="../rock-paper-scissors/images/rock.jpg"></button>
+        <button class="rps"><img id="paper" src="../rock-paper-scissors/images/paper.jpg"></button>
+        <button class="rps"><img id="scissors" src="../rock-paper-scissors/images/scissors.jpg"></button>
     </div>
     
     <div id="display">
@@ -43,6 +45,7 @@
             let comp;
             let rand = Math.floor(Math.random() * 3) + 1;
             console.log(pick);
+            winner.style.display = "none";
 
             if(rand === 1)
             {
@@ -65,19 +68,26 @@
                 p3.innerHTML = ++ties;
                 console.log('draw');
                 rounds--;
+                winner.style.display = "block";
+                winner.innerHTML = "This round: draw...";
             }
             else
             {
                 if((pick === "rock" && comp === "scissors") ||
-                (pick === "scissors" && comp === "paper"))
+                (pick === "scissors" && comp === "paper") || 
+                (pick === "paper" && comp === "rock"))
                 {
                     p1.innerHTML = ++wins;
                     console.log('win');
+                    winner.style.display = "block";
+                    winner.innerHTML = "This round: player.";
                 }
                 else
                 {
                     p2.innerHTML = ++losses;
                     console.log('lose');
+                    winner.style.display = "block";
+                    winner.innerHTML = "This round: computer.";
                 }
             }
 

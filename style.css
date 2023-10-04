@@ -12,6 +12,13 @@ body{
     background-color: rgb(2, 0, 102);
 }
 
+h1{
+    flex: 1;
+    color: rgb(0, 187, 255);
+    font-style: italic;
+    margin-bottom: 50px;
+}
+
 .buttons{
     flex: 1;
     margin: 20px 40px;
@@ -19,7 +26,10 @@ body{
 
 .rps{
     margin: 0px 25px;
-    padding: 5px 15px;
+    padding: 1px;
+    border-radius: 100%;
+    background-color: rgb(2, 0, 102);
+    border-width: 0px;
 }
 
 #display{
@@ -79,4 +89,18 @@ body{
 #victor{
     color: rgb(0, 187, 255);
     font-size: xx-large;
+}
+
+img{
+    border-style: groove;
+    border-radius: 100%;
+    height: 105px;
+    width: 105px;
+    border-color: gold;
+    border-width: 5px;
+}
+
+#redo{
+    height: 50px;
+    width: 100px;
 }
