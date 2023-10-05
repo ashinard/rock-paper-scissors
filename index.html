@@ -39,7 +39,6 @@
     </div>
     <script>
         function playRound(e){
-            rounds++;
             console.log(rounds);
             const pick = e.target.id.toString();
             let comp;
@@ -67,7 +66,6 @@
             {
                 p3.innerHTML = ++ties;
                 console.log('draw');
-                rounds--;
                 winner.style.display = "block";
                 winner.innerHTML = "This round: draw...";
             }
@@ -91,7 +89,7 @@
                 }
             }
 
-            if((rounds) > 4)
+            if((wins === 5) || (losses === 5))
             {
                 winner.style.display = "block";
                 again.style.display = "block";
